@@ -51,6 +51,9 @@
       // Set to false to disable the auto iOS enabler.
       self.mobileAutoEnable = true;
 
+      // checking iOS
+      self.isIOS = /iPhone|iPad|iPod/i.test(self._navigator && self._navigator.userAgent);
+
       // Setup the various state values for global tracking.
       self._setup();
 
@@ -209,15 +212,28 @@
       }
 
       // Test to make sure audio isn't disabled in Internet Explorer.
-      try {
-        var test = new Audio();
-        if (test.muted) {
-          self.noAudio = true;
-        }
-      } catch (e) {}
+
+      if(! self.isIOS){
+        try {
+          var test = new Audio();
+          if (test.muted) {
+            self.noAudio = true;
+          }
+        } catch (e) {}
+      }
 
       // Check for supported codecs.
-      if (!self.noAudio) {
+      if(self.isIOS){
+          self._codecs = {
+            mp3: true,
+            ogg: true,
+            oga: true,
+            wav: true,
+            aac: true,
+            m4a: true,
+            mp4: true
+          };
+      } else if (!self.noAudio) {
         self._setupCodecs();
       }
 
