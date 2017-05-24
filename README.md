@@ -61,6 +61,7 @@ Several options to get up and running:
 
 * Clone the repo: `git clone https://github.com/goldfire/howler.js.git`
 * Install with [npm](https://www.npmjs.com/package/howler): `npm install howler`
+* Install with [Yarn](https://yarnpkg.com/en/package/howler): `yarn add howler`
 * Install with [Bower](http://bower.io/): `bower install howler`
 * Hosted CDN: [`cdnjs`](https://cdnjs.com/libraries/howler) [`jsDelivr`](https://www.jsdelivr.com/projects/howler.js)
 
